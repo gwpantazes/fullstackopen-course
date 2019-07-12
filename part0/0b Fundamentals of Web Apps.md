@@ -142,3 +142,44 @@ Full stack developers must also have enough configurationa nd administration ski
 
 Debugging is a bit harder than with regular desktop applications. Javscript is weird, Async is weird. Need to know the HTTP protocol.
 - Also handle databases, server administration, and configuration
+
+# Exercises
+
+# HTML
+- Not a programming languae, a markup language.
+- Elements enclose, wrap, different parts of the content
+- Element = Opening tag + content + Closing tag . Elements can have attributes (key value pairs `name="value"`).
+
+# CSS
+- Not a programming or markup language: a style sheet language
+```html
+<link href="styles/style.css" rel="stylesheet">
+```
+
+Selector {
+    property declaration
+    property: property value
+}
+rule set (or rule for short)
+A declaration is = A single rule like color: red;
+
+Google fonts (https://developer.mozilla.org/en-US/Learn/Getting_started_with_the_web/What_should_your_web_site_be_like#Font)
+```html
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+```
+So fonts are also a stylesheet. You still need to set that font on your own text in your stylesheet.
+
+- Inline images can't get spacing values such as margin or padding (is this exactly right..?)
+    - Maybe there are just different rules
+
+# HTML Form
+- Label `for` attribute link to `id` of `input` widget will formally link the two, clicking on the label will focus on the widget
+    - `name` is for server, `id` is for web page (connects with `label` `for` attribute)
+- `input` `type` attribute sets the widget type
+- `<input>` is an empty element, `<textarea>` is not. 
+- Default values
+    - input: value attribute
+    - textarea: content in the element
+- both input and button can be submit, but `<button>` allows full html content. `input` only allows plaintext.
+
+LEAVING OFF AT https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Your_first_HTML_form#Sending_form_data_to_your_web_server
