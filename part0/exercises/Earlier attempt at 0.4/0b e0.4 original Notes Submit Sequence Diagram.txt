@@ -1,0 +1,27 @@
+title Submitting a Note
+
+note right of Browser: The user goes to https://fullstack-exampleapp.herokuapp.com/notes
+Browser->Server: HTTP GET request for index.html
+Server->Browser: response with index.html
+note right of Browser: Browser begins parsing the HTML page
+Browser->Server: HTTP GET request for script.js
+Server->Browser: response with script.js
+note right of Browser: Browser begins running JS.
+Browser->Server: HTTP GET data.json
+Server->Browser: response with data.json
+note right of Browser: Browser renders notes in data as list
+note right of Browser: The user creates a new note on page  by writing something into the text field and clicking the submit button. 
+Browser->Server: HTTP POST request with JSON data of note content and timestamp
+note left of Server: Server saves the info to the notes list in service memory
+Server->Browser: Response 201 Created and redirect to the same page
+note right of Browser: Page refreshes
+Browser->Server: HTTP GET request for index.html
+Server->Browser: response with index.html
+note right of Browser: Browser begins parsing the HTML page
+Browser->Server: HTTP GET request for script.js
+Server->Browser: response with script.js
+note right of Browser: Browser begins running JS.
+Browser->Server: HTTP GET data.json
+Server->Browser: response with data.json
+note right of Browser: Browser renders notes in data as list, and the newly submitted note is also shown
+

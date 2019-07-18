@@ -1,0 +1,17 @@
+title User navigates to the SPA Notes Page
+
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/spa
+server-->browser: HTML code
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.css
+server-->browser: main.css
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/spa.js
+server-->browser: spa.js
+note over browser
+Browser runs JS code which
+- requests https://fullstack-exampleapp.herokuapp.com/data.json
+- and overrides the form event handler
+end note
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/data.json
+server->browser: data.json
+note over browser: Page renders data.json, injecting a list into the HTML using DOM API
+

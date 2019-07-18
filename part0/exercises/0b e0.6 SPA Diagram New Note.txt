@@ -1,0 +1,13 @@
+title User Creates a new note (Single Page App)
+
+note over browser: User is on https://fullstack-exampleapp.herokuapp.com/spa
+note over browser: User submits text through the HTML form
+note over browser
+Event handler intercepts form submit action and runs custom JS code in spa.js.
+JS code adds new note to notes array and redraws locally without leaving the page.
+Then, script sends new note to the server.
+end note 
+browser->server: HTTP POST https://fullstack-exampleapp.herokuapp.com/new_note_spa with request playload application/json {content, date}
+
+
+server-->browser: HTTP Status 201 Created

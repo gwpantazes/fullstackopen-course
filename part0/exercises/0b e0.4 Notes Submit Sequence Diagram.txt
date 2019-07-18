@@ -1,0 +1,18 @@
+title User Creates a new Note
+
+note over browser: User is on https://fullstack-exampleapp.herokuapp.com/notes
+note over browser: User submits text through the HTML form
+browser->server: HTTP POST to https://fullstack-exampleapp.herokuapp.com/new_note
+note over server: Server adds note to in-memory notes array
+server-->browser: Redirect to location:/notes (HTTP Status 302 Found)
+note over browser: Browser follows redirect
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/notes
+server-->browser: HTML code
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.css
+server-->browser: main.css
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.js
+server-->browser: main.js
+note over browser: Browser starts executing JS code which requests data.json from server
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/data.json
+server-->browser: data.json
+note over browser: On receiving data.json, javascript inserts notes into the HTML via the DOM API.
