@@ -1,4 +1,5 @@
 # Introduction to React
+https://fullstackopen.com/en/part1/introduction_to_react
 
 [React library](https://reactjs.org/)
 [create-react-app](https://github.com/facebookincubator/create-react-app)
@@ -18,5 +19,15 @@ Component is defined as a JS function. `() => (...)` is shorthand for `() => { r
 
 Assign to const variables: `const App = ...`
 
+JSX every tag needs closing, unlike HTML. `<br />`
 
+Convention: Root component called App at the top of the component tree of the application
 
+pass data to components using _props_
+
+React component names must be capitalized or it will make an empty normal HTML element
+
+React components usually need
+- a root element
+- or should be an array of components
+- or should be wrapped in an empty JSX element fragment
