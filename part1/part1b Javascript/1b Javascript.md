@@ -360,3 +360,9 @@ Similar to prototype chain used by objects.
 
 A closure is a combination of a function and the scope object in which it was created.
 Closures let you save state, and can be used in place of objects because of that state.
+
+# Remaining Reading List
+- https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/prototype
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain
+- https://stackoverflow.com/questions/111102/how-do-javascript-closures-work
