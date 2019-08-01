@@ -1,4 +1,5 @@
 # 1b Javascript
+https://fullstackopen.com/en/part1/javascript
 
 Official name of JS standard is ECMAScript. e.g. ECMAScript rcent version ES9 = ECMAScript 2018
 
@@ -54,3 +55,15 @@ Immutable data structures.
 In React code, it is preferable to use the method `.concat()` which creates a new array with the content of the old and new array. Don't use `push()`.
 
 # Objects
+- Object literals: list property key value pairs within curly braces
+- Values of the properties can be of any type, like integers, strings, arrays, objects
+- Properties referenced with dot notation or square braces
+    - Dot notation no string, just JS symbol name
+    - Bracket notation, use a string
+- Dot notation or bracket notation can add properties to an already existing object
+- Invalid property names must be done with brackets for strings
+
+# [Functions](https://fullstackopen.com/en/part1/javascript#functions)
+- Arrow functions: `const func = (param1, ...) => { return something; }
+- `function` declaration with a *name*
+- nameless `function` expression being assigned to a varaible
