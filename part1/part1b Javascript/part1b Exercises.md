@@ -10,3 +10,6 @@ Modify the variable definitions of the App component to use objects and also ref
 And then place the objects into an array. Modify the variable definitions of App into the following form and modify the other parts of the application accordingly.
 NB at this point you can assume that there are always three items, so there is no need to go through the arrays using loops. We will come back to the topic of rendering components based on items in arrays with a more thorough exploration in the next part of the course.
 However, do not pass different objects as separate props from the App component to the components Content and Total. Instead, pass them directly as an array.
+
+# 1.5: course information step5
+Let's take the changes one step further. Change the course and its parts into a single Javascript object. Fix everything that breaks.
