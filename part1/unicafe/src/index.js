@@ -1,11 +1,9 @@
 import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
 
-
-
 const GiveFeedbackHeader = () => <h1>Give Feedback</h1>
 
-const FeedbackButton = ({ name, feedbackHandler}) => <button onClick={feedbackHandler}>{name}</button>
+const FeedbackButton = ({ name, feedbackHandler }) => <button onClick={feedbackHandler}>{name}</button>
 
 const GiveFeedback = ({ feedbackHandlers }) => {
     return (
@@ -24,13 +22,43 @@ const StatisticsHeader = () => <h1>Statistics</h1>
 
 const StatisticsDisplay = ({ name, value }) => <div>{name} {value}</div>
 
+const TotalDisplay = ({ total }) => <div>all {total}</div>
+
+const AverageDisplay = ({ average }) => <div>average {average}</div>
+
 const Statistics = ({ statistics }) => {
+
+    const total = statistics.good + statistics.neutral + statistics.bad
+
+    const avg = (...numbers) => numbers.reduce((a, b) => a + b, 0) / numbers.length
+
+    const feedbackScoreAverage = ({ good, neutral, bad }) => {
+        if (!(good + neutral + bad)) {
+            return 0;
+        }
+
+        const feedbackValues = [].concat(
+            Array.apply(null, Array(good)).map(() => 1),
+            Array.apply(null, Array(neutral)).map(() => 0),
+            Array.apply(null, Array(bad)).map(() => -1)
+        )
+
+        return avg(...feedbackValues)
+    }
+
+    // const percentPositive = 
+
     return (
         <div>
             <StatisticsHeader />
+
             <StatisticsDisplay name="good" value={statistics.good} />
             <StatisticsDisplay name="neutral" value={statistics.neutral} />
             <StatisticsDisplay name="bad" value={statistics.bad} />
+
+            <TotalDisplay total={total} />
+            <AverageDisplay average={feedbackScoreAverage(statistics)} />
+            {/* <PositiveDisplay /> */}
         </div>
     )
 }
@@ -58,7 +86,7 @@ const App = () => {
     return (
         <>
             {/* TODO Name, and event handler {value, and setValue} */}
-            <GiveFeedback feedbackHandlers={feedbackIncrementers} /> 
+            <GiveFeedback feedbackHandlers={feedbackIncrementers} />
             <Statistics statistics={feedbackStatistics} />
         </>
     )
