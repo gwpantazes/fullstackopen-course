@@ -80,8 +80,38 @@ Rules and limitations of hooks for proper functioning state.
 
 `useState` (and `useEffect`) ***must not be called from inside a loop, conditional expression, or any place that is not a function defining a component***.
 Hooks may only be called from inside the React Component function body. (`useState()` is the hook!)
-Hooks must always be called in th same order. ***ORDER MATTERS FOR HOOKS***
+Hooks must always be called in the same order. ***ORDER MATTERS FOR HOOKS***
 E.g. No calling `useState` from within an if, a loop, or a nested function in the component.
 
 # [Event Handling Revisited](https://fullstackopen.com/en/part1/a_more_complex_state_debugging_react_apps#event-handling-revisited)
 Event handling has proven difficult, so more on it.
+
+Event handler functions are assigned to interactive things like buttons.
+
+**!** Event handlers must always be a function or a reference to a function.
+Event handlers aren't other values, expressions, or variables of any other type than functions.
+
+**NEVER MUTATE STATE DIRECTLY**
+Calling `setXyz` for state causes the component to rerender. (Infinite recursion)
+
+Just use an arrow function (lamda / anonymous function) to wrap whatever callback / event handler. Easy.
+
+Don't define event handlers directly in the attribute of the element / button. Define event handler functions in a different place. E.g. `const` and in the component function scope.
+
+Functions that return functions
+Closures can be utilized to define generic functionality that can be customized with parameters.
+Can be thought of as a "factory" that produces customized functions.
+
+Closure event handler factory trick can be used to define event handlers that set the state of the component to a given value.
+
+Choose between using a closure factory or having arrow functions in your JSX.
+
+Mostly a matter of taste.
+
+# Passing Event Handlers to Child Components
+When passing event handlers to child components as props.
+
+Have to use the proper prop attribute names when passing props.
+
+# Do Not Define Components Within Other Components
+Don't do it. No benefits, many problems.
