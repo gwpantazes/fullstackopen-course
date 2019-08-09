@@ -26,6 +26,8 @@ const TotalDisplay = ({ total }) => <div>all {total}</div>
 
 const AverageDisplay = ({ average }) => <div>average {average}</div>
 
+const PercentPositiveDisplay = ({ percentPositive }) => <div>percent positive {percentPositive}%</div>
+
 const Statistics = ({ statistics }) => {
 
     const total = statistics.good + statistics.neutral + statistics.bad
@@ -46,7 +48,7 @@ const Statistics = ({ statistics }) => {
         return avg(...feedbackValues)
     }
 
-    // const percentPositive = 
+    const percentPositive = total ? 100 * (statistics.good / total) : 0
 
     return (
         <div>
@@ -58,7 +60,7 @@ const Statistics = ({ statistics }) => {
 
             <TotalDisplay total={total} />
             <AverageDisplay average={feedbackScoreAverage(statistics)} />
-            {/* <PositiveDisplay /> */}
+            <PercentPositiveDisplay percentPositive={percentPositive} />
         </div>
     )
 }
