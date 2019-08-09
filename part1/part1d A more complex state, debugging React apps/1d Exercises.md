@@ -23,3 +23,9 @@ Expand application to show more statistics about the gathered feedback.
 
 # 1.9: unicafe step4
 Change your application to display statistics only once feedback has been gathered.
+
+# 1.10: unicafe step5
+Refactor: extract the following two components:
+- Button for defining the buttons used for submitting feedback
+- Statistic for displaying a single statistic, e.g. the average score.
+To be clear: the Statistic component always displays a single statistic, meaning that the application uses multiple components for rendering all of the statistics

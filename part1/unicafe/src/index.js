@@ -3,16 +3,16 @@ import ReactDOM from 'react-dom'
 
 const GiveFeedbackHeader = () => <h1>Give Feedback</h1>
 
-const FeedbackButton = ({ name, feedbackHandler }) => <button onClick={feedbackHandler}>{name}</button>
+const Button = ({ name, feedbackHandler }) => <button onClick={feedbackHandler}>{name}</button>
 
 const GiveFeedback = ({ feedbackHandlers }) => {
     return (
         <div>
             <GiveFeedbackHeader />
             <div>
-                <FeedbackButton name="good" feedbackHandler={feedbackHandlers.good} />
-                <FeedbackButton name="neutral" feedbackHandler={feedbackHandlers.neutral} />
-                <FeedbackButton name="bad" feedbackHandler={feedbackHandlers.bad} />
+                <Button name="good" feedbackHandler={feedbackHandlers.good} />
+                <Button name="neutral" feedbackHandler={feedbackHandlers.neutral} />
+                <Button name="bad" feedbackHandler={feedbackHandlers.bad} />
             </div>
         </div>
     )
@@ -20,13 +20,7 @@ const GiveFeedback = ({ feedbackHandlers }) => {
 
 const StatisticsHeader = () => <h1>Statistics</h1>
 
-const StatisticsDisplay = ({ name, value }) => <div>{name} {value}</div>
-
-const TotalDisplay = ({ total }) => <div>all {total}</div>
-
-const AverageDisplay = ({ average }) => <div>average {average}</div>
-
-const PercentPositiveDisplay = ({ percentPositive }) => <div>percent positive {percentPositive}%</div>
+const Statistic = ({ name, value }) => <div>{name} {value}</div>
 
 const Statistics = ({ statistics }) => {
 
@@ -62,14 +56,12 @@ const Statistics = ({ statistics }) => {
     return (
         <div>
             <StatisticsHeader />
-
-            <StatisticsDisplay name="good" value={statistics.good} />
-            <StatisticsDisplay name="neutral" value={statistics.neutral} />
-            <StatisticsDisplay name="bad" value={statistics.bad} />
-
-            <TotalDisplay total={total} />
-            <AverageDisplay average={feedbackScoreAverage(statistics)} />
-            <PercentPositiveDisplay percentPositive={percentPositive} />
+            <Statistic name="good" value={statistics.good} />
+            <Statistic name="neutral" value={statistics.neutral} />
+            <Statistic name="bad" value={statistics.bad} />
+            <Statistic name="all" value={total} />
+            <Statistic name="average" value={feedbackScoreAverage(statistics)} />
+            <Statistic name="percent positive" value={percentPositive + "%"} />
         </div>
     )
     
