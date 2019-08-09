@@ -36,3 +36,7 @@ The application's state should still be kept in the root App component.
 Display the statistics in an HTML table.
 
 Resolve all warnings. Typical source of an error Unchecked runtime.lastError: Could not establish connection. Receiving end does not exist. is Chrome extension. Try going to chrome://extensions/ and try disabling them one by one and refreshing React app page; the error should eventually disappear.
+
+# 1.12*: anecdotes step1
+Expand the given application code by adding a button which displays a random anecdote.
+- Generate random numbers
