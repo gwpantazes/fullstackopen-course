@@ -40,3 +40,10 @@ Resolve all warnings. Typical source of an error Unchecked runtime.lastError: Co
 # 1.12*: anecdotes step1
 Expand the given application code by adding a button which displays a random anecdote.
 - Generate random numbers
+
+# 1.13*: anecdotes step2
+Expand your application so that you can vote for the displayed anecdote.
+
+If storing votes of each anecdote int an array or object in the component's state, refer to the material for correct way of updating state stored in complex data structures like objects and arrays. Make copies of arrays / objects.
+
+Using an array may be the simpler choice in this case. Create a zero-filled array of a desired length.
