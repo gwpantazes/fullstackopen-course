@@ -3,6 +3,18 @@ import ReactDOM from 'react-dom'
 
 const Button = ({ name, handler }) => <button onClick={handler}>{name}</button>
 
+const Anecdote = ({ header, anecdote, votes}) => {
+    return (
+        <div>
+            <h1>{header}</h1>
+            {anecdote}
+            <div>
+                has {votes} votes
+            </div>
+        </div>
+    )
+}
+
 const App = (props) => {
     const [selected, setSelected] = useState(0)
     const [votes, setVotes] = useState(Array.apply(null, Array(anecdotes.length)).map(() => 0))
@@ -23,17 +35,18 @@ const App = (props) => {
         setVotes(copy)
     }
 
+    const indexOfHighestVote = votes.indexOf(Math.max(...votes))
+
     return (
-        <div>
-            {props.anecdotes[selected]}
-            <div>
-                has {votes[selected]} votes
-            </div>
+        <>
+            <Anecdote header="Anecdote of the Day" anecdote={props.anecdotes[selected]} votes={votes[selected]} />
             <div>
                 <Button name="vote" handler={voteHandler} />
                 <Button name="next anecdote" handler={nextAnecdoteHandler} />
             </div>
-        </div>
+
+            <Anecdote header="Anecdote with most votes" anecdote={props.anecdotes[indexOfHighestVote]} votes={Math.max(...votes)} />
+        </>
     )
 }
 

@@ -47,3 +47,8 @@ Expand your application so that you can vote for the displayed anecdote.
 If storing votes of each anecdote int an array or object in the component's state, refer to the material for correct way of updating state stored in complex data structures like objects and arrays. Make copies of arrays / objects.
 
 Using an array may be the simpler choice in this case. Create a zero-filled array of a desired length.
+
+# 1.14*: anecdotes step3
+Now implement the final version of the application that displays the anecdote with the largest number of votes:
+
+If multiple anecdotes are tied for first place it is sufficient to just show one of them.
