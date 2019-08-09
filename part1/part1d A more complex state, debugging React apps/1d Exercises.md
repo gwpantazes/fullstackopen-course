@@ -29,3 +29,10 @@ Refactor: extract the following two components:
 - Button for defining the buttons used for submitting feedback
 - Statistic for displaying a single statistic, e.g. the average score.
 To be clear: the Statistic component always displays a single statistic, meaning that the application uses multiple components for rendering all of the statistics
+
+The application's state should still be kept in the root App component.
+
+# 1.11*: unicafe step6
+Display the statistics in an HTML table.
+
+Resolve all warnings. Typical source of an error Unchecked runtime.lastError: Could not establish connection. Receiving end does not exist. is Chrome extension. Try going to chrome://extensions/ and try disabling them one by one and refreshing React app page; the error should eventually disappear.

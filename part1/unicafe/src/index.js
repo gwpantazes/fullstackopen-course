@@ -20,7 +20,7 @@ const GiveFeedback = ({ feedbackHandlers }) => {
 
 const StatisticsHeader = () => <h1>Statistics</h1>
 
-const Statistic = ({ name, value }) => <div>{name} {value}</div>
+const Statistic = ({ name, value }) => <tr><td>{name}</td><td>{value}</td></tr>
 
 const Statistics = ({ statistics }) => {
 
@@ -44,10 +44,10 @@ const Statistics = ({ statistics }) => {
 
     const percentPositive = total ? 100 * (statistics.good / total) : 0
 
-    if(total === 0) {
+    if (total === 0) {
         return (
             <div>
-                <StatisticsHeader /> 
+                <StatisticsHeader />
                 <div>No feedback given</div>
             </div>
         )
@@ -56,15 +56,17 @@ const Statistics = ({ statistics }) => {
     return (
         <div>
             <StatisticsHeader />
-            <Statistic name="good" value={statistics.good} />
-            <Statistic name="neutral" value={statistics.neutral} />
-            <Statistic name="bad" value={statistics.bad} />
-            <Statistic name="all" value={total} />
-            <Statistic name="average" value={feedbackScoreAverage(statistics)} />
-            <Statistic name="percent positive" value={percentPositive + "%"} />
+            <table><tbody>
+                <Statistic name="good" value={statistics.good} />
+                <Statistic name="neutral" value={statistics.neutral} />
+                <Statistic name="bad" value={statistics.bad} />
+                <Statistic name="all" value={total} />
+                <Statistic name="average" value={feedbackScoreAverage(statistics)} />
+                <Statistic name="percent positive" value={percentPositive + "%"} />
+            </tbody></table>
         </div>
     )
-    
+
 }
 
 const App = () => {
