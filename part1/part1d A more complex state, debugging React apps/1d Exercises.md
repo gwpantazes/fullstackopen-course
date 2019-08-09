@@ -20,3 +20,6 @@ Expand application to show more statistics about the gathered feedback.
 - Refactor application so Statistics is extracted into its own Statistics component.
 - State of the application should remain in the App root component.
 - Remember: components should not be defined inside other components.
+
+# 1.9: unicafe step4
+Change your application to display statistics only once feedback has been gathered.

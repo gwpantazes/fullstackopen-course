@@ -50,6 +50,15 @@ const Statistics = ({ statistics }) => {
 
     const percentPositive = total ? 100 * (statistics.good / total) : 0
 
+    if(total === 0) {
+        return (
+            <div>
+                <StatisticsHeader /> 
+                <div>No feedback given</div>
+            </div>
+        )
+    }
+
     return (
         <div>
             <StatisticsHeader />
@@ -63,6 +72,7 @@ const Statistics = ({ statistics }) => {
             <PercentPositiveDisplay percentPositive={percentPositive} />
         </div>
     )
+    
 }
 
 const App = () => {
