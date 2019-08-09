@@ -15,3 +15,8 @@ Expand application to show more statistics about the gathered feedback.
 - The total number of collected feedback
 - the average score (good: 1, neutral: 0, bad: -1)
 - percentage of positive feedback
+
+# 1.8: unicafe step3
+- Refactor application so Statistics is extracted into its own Statistics component.
+- State of the application should remain in the App root component.
+- Remember: components should not be defined inside other components.

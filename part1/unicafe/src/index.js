@@ -66,7 +66,6 @@ const Statistics = ({ statistics }) => {
 }
 
 const App = () => {
-    // save clicks of each button to own state
     const [good, setGood] = useState(0)
     const [neutral, setNeutral] = useState(0)
     const [bad, setBad] = useState(0)
@@ -87,7 +86,6 @@ const App = () => {
 
     return (
         <>
-            {/* TODO Name, and event handler {value, and setValue} */}
             <GiveFeedback feedbackHandlers={feedbackIncrementers} />
             <Statistics statistics={feedbackStatistics} />
         </>
