@@ -15,3 +15,5 @@
     
 - [x] Application must work for N parts a course has. Make sure application works if you add or remove parts of a course.
 
+# 2.2: Course contents step7
+- [x] Show the sum of the exercises of the course.
