@@ -17,3 +17,14 @@
 
 # 2.2: Course contents step7
 - [x] Show the sum of the exercises of the course.
+
+# 2.3*: Course contents step8
+- [x] If you haven't done so already, calculate the sum of exercises with the array method reduce.
+- [x] Install VS Code plugin to swap between arrow function short form and long form
+
+# 2.4: Course contents step9
+- [x] Extend application to allow for arbitrary number of courses
+
+# 2.5: separate module
+- [x] Declare the Course component as a separate module, which is imported by the App component. 
+- ~~You can include all subcomponents of the course into the same module.~~ I split them all up.
