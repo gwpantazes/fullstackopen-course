@@ -2,7 +2,8 @@
 
 Full Stack Open course on modern web development with React.js.
 
-https://fullstackopen.com/en/
+- https://fullstackopen.com/en/
+- https://github.com/fullstackopen-2019
 
 This repo is for my notes, exercises, and projects.
 
