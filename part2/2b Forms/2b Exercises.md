@@ -12,3 +12,8 @@ NB:
 ## Tips
 - It can be useful to render state and other variables as text for debuggin. Temporarily add elements to your rendered component.
 - Debug with React Developer tools extension
+
+# 2.7: The Phonebook Step2
+- [x] Prevent the user from entering duplicate names
+    - [x] Issue a warning with the alert command when a duplicate submit is attempted
+- [x] Use template strings to form strings

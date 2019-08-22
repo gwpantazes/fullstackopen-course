@@ -12,7 +12,12 @@ const App = () => {
 
   const addPerson = event => {
     event.preventDefault()
-    setPersons(persons.concat({ name: newName }))
+    const trimmedNewName = newName.trim()
+    if (persons.find(person => person.name === trimmedNewName)) {
+      alert(`${trimmedNewName} is already added to phonebook`)
+    } else {
+      setPersons(persons.concat({ name: trimmedNewName }))  
+    }
   }
 
   const phoneNumbers = persons.map(person => <Person key={person.name} name={person.name} />)
