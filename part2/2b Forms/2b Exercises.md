@@ -21,3 +21,10 @@ NB:
 # 2.8: The Phonebook Step3
 - [x] Add phone numbers to the phone book
     - [x] Add a second input to the form
+
+# 2.9*: The Phonebook Step4
+- [x] Add a search field to filter people by name
+    - [x] Search field as input element placed outside the HTML form
+    - [x] Case insensitive
+
+Tip: Hardcode dummy data while testing to save time.
