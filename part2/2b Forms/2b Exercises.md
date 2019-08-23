@@ -28,3 +28,7 @@ NB:
     - [x] Case insensitive
 
 Tip: Hardcode dummy data while testing to save time.
+
+# [2.10: The Phonebook Step5](https://fullstackopen.com/en/part2/forms#exercises)
+- [x] Refactor into components: Filter, PersonForm, Persons, Person
+- [x] Maintain application state and all event handlers in the App root component

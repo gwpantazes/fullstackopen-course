@@ -8,3 +8,9 @@ Full Stack Open course on modern web development with React.js.
 This repo is for my notes, exercises, and projects.
 
 Coupled with WEBQA-190 Learn React.js.
+
+# Extra Reading List
+Reading items about Javascript and React that aren't recommended by the course.
+
+- [The complete guide to static typing in "React & Redux" apps using TypeScript](https://github.com/piotrwitek/react-redux-typescript-guide)
+- Rediscovering Javascript: Master ES6, ES7, and ES8 (Library book)
