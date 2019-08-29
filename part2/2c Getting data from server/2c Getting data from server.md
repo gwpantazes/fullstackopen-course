@@ -57,3 +57,10 @@ state hooks and effect hooks
     - setting up a subscription
     - manually changing the DOM in React components
 - effect runs immediately after rendering
+
+By default `useEffect` runs after every render. Second argument array of values can change this behavior.
+- `[]`: only run the effect on the first render of the component
+- This argument array should include *all values from the component scope that change over time and that are used by the effect*. Otherwise, your effect code will reference stale values from previous renders due to closure scope.
+
+# The development runtime environment
+- dev-server stiches Javascript files into one file
