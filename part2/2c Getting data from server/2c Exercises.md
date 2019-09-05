@@ -24,3 +24,6 @@ NB: it is enough that your application works for most of the countries. Some cou
 - [x] When the names of multiple countries are shown on the page, there is a button next to the name of the country, which when pressed shows the view for that country.
 
 NB: In this exercise it is also enough that your application works for most of the countries. Countries whose name appears in the name of another country, like Sudan can be ignored.
+
+# 2.14*: Data for countries, step3
+- [x] Add to the view showing the data of a single country the weather report for the capital of that country. There are dozens of providers for weather data (e.g. https://www.apixu.com)
