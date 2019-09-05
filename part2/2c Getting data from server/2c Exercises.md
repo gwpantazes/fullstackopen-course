@@ -19,3 +19,8 @@ Continue developing phonebook.
     - [x] When there is only one country matching the query, then the basic data of the country, its flag and the languages spoken in that country are shown
 
 NB: it is enough that your application works for most of the countries. Some countries, like Sudan, can cause trouble, since the name of the country is part of the name of another country, South Sudan. You need not worry about these edge cases.
+
+# 2.13*: Data for countries, step2
+- [x] When the names of multiple countries are shown on the page, there is a button next to the name of the country, which when pressed shows the view for that country.
+
+NB: In this exercise it is also enough that your application works for most of the countries. Countries whose name appears in the name of another country, like Sudan can be ignored.

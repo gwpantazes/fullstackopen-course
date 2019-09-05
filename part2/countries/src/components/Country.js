@@ -14,7 +14,7 @@ const Country = ({ country }) => {
             <ul>
                 {renderListOfCountryLanguages()}
             </ul>
-            <img src={country.flag} alt="Flag of {country}" width="60%"/>
+            <img src={country.flag} alt="Flag of {country}" width="60%" border="5"/>
         </div>
     )
 }

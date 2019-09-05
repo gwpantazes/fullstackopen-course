@@ -10,14 +10,14 @@ function App() {
 
   useEffect(() => {
     axios
-      //.get("http://localhost:3001/countries")
-      .get("https://restcountries.eu/rest/v2/all")
+      .get("http://localhost:3001/countries")
       .then(response => setCountries(response.data))
   }, [])
 
   const onFilterChange = event => setFilter(event.target.value)
 
-  const filterCountries = () => countries.filter(country => country.name.includes(filter))
+  const filterCountries = () => countries.filter(country => 
+    country.name.toLowerCase().includes(filter.trim().toLowerCase()))
 
   return (
     <div>
