@@ -14,3 +14,4 @@ Reading items about Javascript and React that aren't recommended by the course.
 
 - [The complete guide to static typing in "React & Redux" apps using TypeScript](https://github.com/piotrwitek/react-redux-typescript-guide)
 - Rediscovering Javascript: Master ES6, ES7, and ES8 (Library book)
+- [You Don't Know JS Yet](https://github.com/getify/You-Dont-Know-JS)
