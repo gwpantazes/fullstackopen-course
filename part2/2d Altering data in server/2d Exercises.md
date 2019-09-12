@@ -14,6 +14,6 @@ https://fullstackopen.com/en/part2/altering_data_in_server#exercises
 - [x] Delete the person resource in the backend with HTTP DELETE request using axios
 
 # 2.18*: Phonebook step10
-- [ ] if a number is added to an already existing user, the new number will replace the old number
-    - [ ] Use the HTTP PUT method for updating the phone number
-- [ ] If the person's information is already in the phonebook, the application can confirm the action from the user
+- [x] if a number is added to an already existing user, the new number will replace the old number
+    - [x] Use the HTTP PUT method for updating the phone number
+- [x] If the person's information is already in the phonebook, the application can confirm the action from the user

@@ -26,21 +26,30 @@ const App = () => {
   const addPerson = event => {
     event.preventDefault()
 
-    const trimmedNewName = newName.trim()
-    const trimmedNumber = newNumber.trim()
+    const newPerson = {
+      name: newName.trim(),
+      number: newNumber.trim()
+    }
 
-    if (trimmedNewName.length === 0) {
+    // Error checking
+    if (newPerson.name.length === 0) {
       alert('Name is empty.')
-    } else if (trimmedNumber.length === 0) {
+      return
+    } else if (newPerson.number.length === 0) {
       alert('Phone number is empty')
-    } else if (persons.find(person => person.name === trimmedNewName)) {
-      alert(`${trimmedNewName} is already added to phonebook`)
+      return
+    } 
+    
+    const foundPerson = persons.find(person => person.name === newPerson.name)
+    if (foundPerson) {
+      if (window.confirm(`${newPerson.name} is already added to the phonebook, replace the old number with a new one?`)) {
+        phonebook
+          .update({ ...newPerson, id: foundPerson.id })
+          .then(updatedPerson => setPersons(persons.map(person => person.id === updatedPerson.id ? updatedPerson : person)))
+      }
     } else {
       phonebook
-        .create({
-          name: trimmedNewName,
-          number: trimmedNumber
-        })
+        .create(newPerson)
         .then(person => setPersons(persons.concat(person)))
     }
   }
