@@ -45,6 +45,14 @@ const App = () => {
     }
   }
 
+  const deletePerson = person => () => {
+    if(window.confirm()) {
+      phonebook
+        .remove(person)
+        .then(deletedPerson => setPersons(persons.filter(person => person.id !== deletedPerson.id)))
+    }
+  }
+
   const filteredPersons = persons.filter(person => person.name.toLowerCase().includes(nameFilter.toLowerCase()))
 
   return (
@@ -57,7 +65,7 @@ const App = () => {
         newNumber={newNumber} handleNumberChange={handleNumberChange}
       />
       <h2>Numbers</h2>
-      <Persons persons={filteredPersons} />
+      <Persons persons={filteredPersons} deletePerson={deletePerson} />
     </div>
   )
 }
