@@ -2,10 +2,10 @@
 https://fullstackopen.com/en/part2/altering_data_in_server#exercises
 
 # 2.15: Phonebook step7
-- [ ] Currently the numbers that are added to the phonebook are not saved to a backend server. Fix this situation.
+- [ ] Save added numbers to the backend server.
 
 # 2.16: Phonebook step8
-- [ ] Extract the code that handles the communication with the backend into its own module
+- [ ] Extract the code that handles the communication with the backend into its own module.
 
 # 2.17: Phonebook step9
 - [ ] Make it possible for users to delete entries from the phonebook. 
