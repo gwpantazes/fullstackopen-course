@@ -1,7 +1,7 @@
 import React from 'react'
 
 const PersonForm = ({ 
-    addPerson, 
+    submit, 
     newName, 
     handleNameChange, 
     newNumber, 
@@ -10,7 +10,7 @@ const PersonForm = ({
     return (
         <>
             <h2>Add a new</h2>
-            <form onSubmit={addPerson}>
+            <form onSubmit={submit}>
                 <div>
                     name: <input value={newName} onChange={handleNameChange} />
                 </div>

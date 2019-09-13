@@ -6,9 +6,20 @@ const Notification = ({ message }) => {
         return null
     }
 
+    const typeToClass = (type) => {
+        switch(type) {
+            case "SUCCESS":
+                return "success"
+            case "FAILURE":
+                return "failure"
+            default:
+                console.error("Invalid notification type", type);
+        }
+    }
+
     return (
-        <div className="notification success">
-            <p>{message}</p>
+        <div className={`notification ${typeToClass(message.type)}`}>
+            <p>{message.message}</p>
         </div>
     )
 }
