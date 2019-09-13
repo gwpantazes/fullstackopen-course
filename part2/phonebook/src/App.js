@@ -12,6 +12,7 @@ const App = () => {
   const [newName, setNewName] = useState('')
   const [newNumber, setNewNumber] = useState('')
   const [message, setMessage] = useState(null)
+  const [messageTimeout, setMessageTimeout] = useState(null)
 
   useEffect(() => {
     phonebook
@@ -25,7 +26,16 @@ const App = () => {
 
   const handleNumberChange = event => setNewNumber(event.target.value)
 
-  const delayClearMessage = () => setTimeout(() => setMessage(null), 3500)
+  const delayClearMessage = () => {
+    if(messageTimeout) {
+      window.clearTimeout(messageTimeout)
+    }
+
+    setMessageTimeout(setTimeout(() => {
+      setMessage(null)
+      setMessageTimeout(null)
+    }, 3500))
+  }
 
   const addPerson = event => {
     event.preventDefault()
