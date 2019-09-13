@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Filter from './components/Filter'
 import PersonForm from './components/PersonForm'
 import Persons from './components/Persons'
+import Notification from './components/Notification'
 
 import phonebook from './services/phonebook'
 
@@ -10,6 +11,7 @@ const App = () => {
   const [nameFilter, setNameFilter] = useState('')
   const [newName, setNewName] = useState('')
   const [newNumber, setNewNumber] = useState('')
+  const [message, setMessage] = useState(null)
 
   useEffect(() => {
     phonebook
@@ -22,6 +24,8 @@ const App = () => {
   const handleNameChange = event => setNewName(event.target.value)
 
   const handleNumberChange = event => setNewNumber(event.target.value)
+
+  const delayClearMessage = () => setTimeout(() => setMessage(null), 3500)
 
   const addPerson = event => {
     event.preventDefault()
@@ -45,12 +49,22 @@ const App = () => {
       if (window.confirm(`${newPerson.name} is already added to the phonebook, replace the old number with a new one?`)) {
         phonebook
           .update({ ...newPerson, id: foundPerson.id })
-          .then(updatedPerson => setPersons(persons.map(person => person.id === updatedPerson.id ? updatedPerson : person)))
+          .then(updatedPerson => {
+            setPersons(persons.map(person => person.id === updatedPerson.id ? updatedPerson : person))
+
+            setMessage(`Updated ${updatedPerson.name}'s number`)
+            delayClearMessage()
+          })
       }
     } else {
       phonebook
         .create(newPerson)
-        .then(person => setPersons(persons.concat(person)))
+        .then(person => {
+          setPersons(persons.concat(person))
+          
+          setMessage(`Added ${newPerson.name}`)
+          delayClearMessage()
+        })
     }
   }
 
@@ -58,7 +72,12 @@ const App = () => {
     if(window.confirm()) {
       phonebook
         .remove(person)
-        .then(deletedPerson => setPersons(persons.filter(person => person.id !== deletedPerson.id)))
+        .then(deletedPerson => {
+          setPersons(persons.filter(person => person.id !== deletedPerson.id))
+
+          setMessage(`Deleted ${deletedPerson.name}`)
+          delayClearMessage()
+        })
     }
   }
 
@@ -67,6 +86,7 @@ const App = () => {
   return (
     <div>
       <h2>Phonebook</h2>
+      <Notification message={message} />
       <Filter filter={nameFilter} onChange={handleNameFilterChange} />
       <PersonForm
         addPerson={addPerson}
