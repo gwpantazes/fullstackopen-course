@@ -34,7 +34,7 @@ const App = () => {
   const displayTemporaryNotification = (message, notificationType) => {
     setMessage({
       message,
-      notificationType: notificationType
+      type: notificationType
     })
     delayClearMessage()
   }
@@ -53,25 +53,25 @@ const App = () => {
   const submitPerson = event => {
     event.preventDefault()
 
-    const newPerson = {
+    const person = {
       name: newName.trim(),
       number: newNumber.trim()
     }
 
     // Error checking
-    if (newPerson.name.length === 0) {
+    if (person.name.length === 0) {
       alert('Name is empty.')
       return
-    } else if (newPerson.number.length === 0) {
+    } else if (person.number.length === 0) {
       alert('Phone number is empty')
       return
     }
 
-    const foundPerson = persons.find(person => person.name === newPerson.name)
+    const foundPerson = persons.find(p => p.name === person.name)
     if (foundPerson) {
-      updatePerson(newPerson, foundPerson)
+      updatePerson(person, foundPerson)
     } else {
-      addPerson(newPerson)
+      addPerson(person)
     }
   }
 
@@ -84,24 +84,29 @@ const App = () => {
         displayTemporaryNotification(`Added ${newPerson.name}`, notificationTypes.SUCCESS)
       })
       .catch(error => {
+        // BUG: This catch block pretty much can't be reached, because of how the bug occurs between sessions.
+        // Duplicate key can be created between two simulataneous app sessions, but failure isn't returned by promise.
+        // The duplicate problem manifests only on page reload when we get the full list of people/numbers.
+        // WONTFIX for now, because I'm pretty sure this can be taken care of when we move to express.js, away from the simple json-server.
         console.error('Failed to add person', error)
+        displayTemporaryNotification(`Faled to create ${newPerson.name}`, notificationTypes.FAILURE)
       })
-    // BUG: Duplicate key can be created between two simulataneous app sessions, but failure isn't returned by promise.
-    // The duplicate problem manifests only on page reload when we get the full list of people/numbers.
-    // WONTFIX for now, because I'm pretty sure this can be taken care of when we move to express.js, away from the simple json-server.
   }
 
-  const updatePerson = (newPerson, existingPerson) => {
-    if (window.confirm(`${newPerson.name} is already added to the phonebook, replace the old number with a new one?`)) {
+  const updatePerson = (person, existingPerson) => {
+    if (window.confirm(`${person.name} is already added to the phonebook, replace the old number with a new one?`)) {
       phonebook
-        .update({ ...newPerson, id: existingPerson.id })
+        .update({ ...person, id: existingPerson.id })
         .then(updatedPerson => {
-          setPersons(persons.map(person => person.id === updatedPerson.id ? updatedPerson : person))
+          setPersons(persons.map(p => p.id === updatedPerson.id ? updatedPerson : p))
 
           displayTemporaryNotification(`Updated ${updatedPerson.name}'s number`, notificationTypes.SUCCESS)
         })
         .catch(error => {
-          console.error('Failed to update person', error)
+          console.error('Failed to update person', person, existingPerson, error)
+          displayTemporaryNotification(`Information of ${person.name} has already been removed from server`, notificationTypes.FAILURE)
+
+          setPersons(persons.filter(p => p.id !== existingPerson.id))
         })
     }
   }
@@ -116,7 +121,10 @@ const App = () => {
           displayTemporaryNotification(`Deleted ${deletedPerson.name}`, notificationTypes.SUCCESS)
         })
         .catch(error => {
-          console.error('Failed to delete person', error)
+          console.error('Failed to delete person, already removed from server', person, error)
+          displayTemporaryNotification(`${person.name} has already been removed from server`, notificationTypes.FAILURE)
+
+          setPersons(persons.filter(p => p.id !== person.id))
         })
     }
   }

@@ -1,13 +1,21 @@
 .notification {
     margin: 5px 5px 5px 0px;
     padding-left: 1.2rem;
-    font-size: 1.5rem;
     border: 4px solid black;
     border-radius: 5px;
+    
+    font-size: 1.5rem;
+    color: black;
+    background-color: lightgray;
 }
 
 .success {
     color: green;
-    background-color: lightgray;
     border-color: green;
+}
+
+.failure {
+    color: red;
+    background-color: lightpink;
+    border-color: red;
 }
