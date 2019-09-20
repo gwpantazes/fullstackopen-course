@@ -80,3 +80,34 @@ Truthy/Falsy values: undefined is falsy, objects are truthy
 We don't need to do anything but send the status code when programming a REST API, unlike for a website.
 
 # [Deleting Resources](https://fullstackopen.com/en/part3/node_js_and_express#deleting-resources)
+
+- Return HTTP Status 204 No Content (Successful, but returning no entity-body)
+https://www.restapitutorial.com/httpstatuscodes.html
+
+# Postman
+Testing API operations
+- Gets can be made from the browser, but others... no
+- `curl` command line tool can make API requests
+- Postman
+
+# Visual Studio Code REST client
+Visual Studio REST client - https://marketplace.visualstudio.com/items?itemName=humao.rest-client
+Keep `.rest` file requests in a folder called `requests`
+- Docs: https://github.com/Huachao/vscode-restclient/blob/master/README.md#usage
+
+# Receiving data
+- body-parse library https://github.com/expressjs/body-parser
+- Without a body-parse, POST body would be undefined. So register the body parser for use with express
+- middleware, intercepts post and parses the json body and attaches it to the response before the route event handler is called
+
+- **Keep the terminal running the application visible at all times when you are working on the backend**
+
+- Be careful of content-type, server won't even try to guess correct one
+
+`request` has `get` method and `headers` property for debugging headers.
+- `console.log(request.headers)` for finding Content-Type header issues
+
+- Map the body JSON onto a well-defined object so we don't accept objects with arbitrary or empty properties
+    - If content missing, 400 bad request
+
+- Generate dates/timestamps on the server to prevent misconfigured clients

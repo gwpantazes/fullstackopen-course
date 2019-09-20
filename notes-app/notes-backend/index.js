@@ -1,6 +1,10 @@
 const express = require('express')
 const app = express()
 
+const bodyParser = require('body-parser')
+
+app.use(bodyParser.json())
+
 let notes = [
   {
     id: 1,
@@ -26,14 +30,41 @@ app.get('/', (req, res) => {
   res.send('<h1>Hello World!</h1>')
 })
 
-app.get('/notes', (req, res) => {
-  res.json(notes)
+const generateId = () => {
+  const maxId = notes.length > 0
+    ? Math.max(...notes.map(n => n.id))
+    : 0
+  return maxId + 1
+}
+
+app.post('/notes', (request, response) => {
+  const body = request.body
+
+  if (!body.content) {
+    return response.status(400).json({
+      error: 'content missing'
+    })
+  }
+
+  const note = {
+    content: body.content,
+    important: body.important || false,
+    date: new Date(),
+    id: generateId(),
+  }
+
+  notes = notes.concat(note)
+
+  response.json(note)
+})
+
+app.get('/notes', (request, response) => {
+  response.json(notes)
 })
 
 app.get('/notes/:id', (request, response) => {
   const id = Number(request.params.id)
   const note = notes.find(note => note.id === id)
-  
   if (note) {
     response.json(note)
   } else {
@@ -41,6 +72,12 @@ app.get('/notes/:id', (request, response) => {
   }
 })
 
+app.delete('/notes/:id', (request, response) => {
+  const id = Number(request.params.id)
+  notes = notes.filter(note => note.id !== id)
+
+  response.status(204).end()
+})
 
 const PORT = 3001
 app.listen(PORT, () => {
