@@ -14,24 +14,21 @@ https://fullstackopen.com/en/part3/node_js_and_express#exercises
     - [x] how many entries are in the phonebook at the time of processing the request
 
 # 3.3: Phonebook backend step3
-- [ ] Implement the functionality for displaying the information for a single phonebook entry. 
-    - [ ] The url for getting the data for a person with the id 5 should be http://localhost:3001/api/persons/5
-- [ ] If an entry for the given id is not found, the server has to respond with the appropriate status code.
+- [x] Implement the functionality for displaying the information for a single phonebook entry. 
+    - [x] The url for getting the data for a person with the id 5 should be http://localhost:3001/api/persons/5
+- [x] If an entry for the given id is not found, the server has to respond with the appropriate status code.
 
 # 3.4: Phonebook backend step4
-- [ ] Implement functionality that makes it possible to delete a single phonebook entry by making an HTTP DELETE request to the unique URL of that phonebook entry.
-    - [ ] Test that your functionality works with either Postman or the Visual Studio Code REST client.
+- [x] Implement functionality that makes it possible to delete a single phonebook entry by making an HTTP DELETE request to the unique URL of that phonebook entry.
+    - [x] Test that your functionality works with either Postman or the Visual Studio Code REST client.
 
 # 3.5: Phonebook backend step5
-- [ ] Expand the backend so that new phonebook entries can be added by making HTTP POST requests to the address http://localhost:3001/api/persons.
-- [ ] Generate a new id for the phonebook entry with the Math.random function. Use a big enough range for your random values so that the likelihood of creating duplicate id's is small.
+- [x] Expand the backend so that new phonebook entries can be added by making HTTP POST requests to the address http://localhost:3001/api/persons.
+- [x] Generate a new id for the phonebook entry with the Math.random function. Use a big enough range for your random values so that the likelihood of creating duplicate id's is small.
 
 # 3.6: Phonebook backend step6
-- [ ] Implement error handling for creating new entries. The request is not allowed to succeed, if:
-    - [ ] The name or number is missing
-    - [ ] The name already exists in the phonebook
-- [ ] Respond to requests like these with the appropriate status code
-- [ ] also send back information that explains the reason for the error, e.g.: 
-```js
-{ error: 'name must be unique' }
-```
+- [x] Implement error handling for creating new entries. The request is not allowed to succeed, if:
+    - [x] The name or number is missing
+    - [x] The name already exists in the phonebook
+- [x] Respond to requests like these with the appropriate status code
+- [x] also send back information that explains the reason for the error
