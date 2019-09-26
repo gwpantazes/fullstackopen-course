@@ -111,3 +111,46 @@ Keep `.rest` file requests in a folder called `requests`
     - If content missing, 400 bad request
 
 - Generate dates/timestamps on the server to prevent misconfigured clients
+
+# HTTP request types
+Safety and idempotence of certain HTTP request types
+
+GET and HEAD hould be **safe**. Only do retrieval, have no effect or action other than that. No side effects.
+Side effects: Database changes, etc.
+The response must only return data that already exists on the server
+Safety of GET is a strong recommendation/standard, not a rule.
+
+HEAD is like GET but only contains headers, not entity body.
+Useful for validating links
+
+All HTTP requests (GET, HEAD, DELETE, PUT, PATCH) should be **idempotent**.
+- Multiple identical requests have the same effect as one request.
+- Doesn't specifically mention PATCH, but I think it's true.
+
+POST is not safe, nor idempotent. Calling 5 times will cause 5 creations.
+
+# Middleware
+`body-parser` is middleware: functions used for handling request and response objects.
+- body-parser: takes raw request data and converts to a body JS object property on `request`
+
+- Several middleware can be used at the same time. 
+- Executed in the order that they are registered with the app's `use` method.
+- Have to be registered before routes to be executed before route handlers are called.
+- Maybe situations where middleware are defined after routes. In practice, only called if no route handlers the HTTP request.
+
+Middleware is a function that receives three parameters:
+```
+app.use((request, response, next) => {})
+
+const requestLogger = (request, response, next) => {
+  console.log('Method:', request.method)
+  console.log('Path:  ', request.path)
+  console.log('Body:  ', request.body)
+  console.log('---')
+  next()
+}
+app.use(requestLogger)
+```
+`next` yields control to the next middleware
+- NOTE: body-parser would have to be registered before the request logger in this example, because otherwise `request.body` property wouldn't exist.
+

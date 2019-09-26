@@ -32,3 +32,13 @@ https://fullstackopen.com/en/part3/node_js_and_express#exercises
     - [x] The name already exists in the phonebook
 - [x] Respond to requests like these with the appropriate status code
 - [x] also send back information that explains the reason for the error
+
+# 3.7: Phonebook backend step7
+- [x] Add the morgan middleware to your application for logging.
+    - [x] Configure it to log messages to your console based on the tiny configuration.
+
+# 3.8*: Phonebook backend step8
+- [x] Configure morgan so that it also shows the data sent in HTTP POST requests
+- possible solutions utilizes these two techniques:
+    - [x] creating new tokens
+    - [x] JSON.stringify
