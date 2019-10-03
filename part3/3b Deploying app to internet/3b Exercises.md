@@ -1,4 +1,5 @@
 # 3b Exercises
+https://fullstackopen.com/en/part3/deploying_app_to_internet#exercises
 
 # 3.9 phonebook backend step9
 - [x] Make the backend work with the frontend from the previous part. 
