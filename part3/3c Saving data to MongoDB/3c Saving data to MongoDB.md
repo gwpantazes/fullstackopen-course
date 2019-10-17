@@ -73,3 +73,22 @@ We can use https://www.mongodb.com/cloud/atlas for a cloud mongo provider.
 
 Use mongoose library which has a higher level API than the mongo node.js client.
 
+Database is the URL endpoint. Mongo automatically creates database if it doesn't already exist.
+
+# Schema
+Schema and model of the database object.
+Schema defines shape, , model is how you actually access and create database objects.
+MongoDB is schemless; Mongoose adds schema at the application level.
+
+# Creating and saving objects
+Models are "constructor functions"
+note.save is a property/function that saves that document (instance of the model) to the database
+
+# Fetching objects from the database
+The model can find objects from the database.
+
+# Backend connected to a database
+Schema override toJSON which gets called automatically upon JSON stringify, but we also should explicitly call it when returning notes from API...? What?
+
+# Database configuration into its own module
+https://fullstackopen.com/en/part3/saving_data_to_mongo_db#database-configuration-into-its-own-module
