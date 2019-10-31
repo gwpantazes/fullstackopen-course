@@ -92,3 +92,15 @@ Schema override toJSON which gets called automatically upon JSON stringify, but 
 
 # Database configuration into its own module
 https://fullstackopen.com/en/part3/saving_data_to_mongo_db#database-configuration-into-its-own-module
+
+dotenv npm library
+gitignore the env right away
+import dotenv before using the env variables
+
+# Verifying frontend and backend integration
+When you change the backend,
+- test the backend with Postman
+- test the frontend to see if still works
+    - It's _highly inefficient_ to only test the application through the frontend
+
+Notes app - https://github.com/fullstackopen-2019/part3-notes-backend/tree/part3-3
