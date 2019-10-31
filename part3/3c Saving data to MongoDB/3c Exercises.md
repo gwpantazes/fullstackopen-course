@@ -19,6 +19,6 @@ https://fullstackopen.com/en/part3/saving_data_to_mongo_db#exercises
 - [x] Write all Mongoose-specific code into its own module, just like we did in the chapter Database configuration into its own module
 
 # 3.14: Phonebook database, step2
-- [ ] Change the backend so that new numbers are saved to the database. 
-- [ ] Verify that your frontend still works after the changes.
-- [ ] At this point, you can choose to simply allow users to create all phonebook entries. At this stage, the phonebook can have multiple entries for a person with the same name.
+- [x] Change the backend so that new numbers are saved to the database. 
+- [x] Verify that your frontend still works after the changes.
+- [x] At this point, you can choose to simply allow users to create all phonebook entries. At this stage, the phonebook can have multiple entries for a person with the same name.
