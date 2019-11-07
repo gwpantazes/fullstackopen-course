@@ -104,3 +104,57 @@ When you change the backend,
     - It's _highly inefficient_ to only test the application through the frontend
 
 Notes app - https://github.com/fullstackopen-2019/part3-notes-backend/tree/part3-3
+
+# Error Handling
+https://fullstackopen.com/en/part3/saving_data_to_mongo_db#error-handling
+
+Without error handling, operations like finding nonexistent ID will hang.
+Handle promise rejections with catch. Log errors.
+
+# Moving error handling into middleware
+Middleware might be the best place to deal with errors, so that it can send it to Sentry or other logging services.
+
+> The error that is passed forwards is given to the next function as a parameter. If next was called without a parameter, then the execution would simply move onto the next route or middleware. If the next function is called with a parameter, then the execution will continue to the error handler middleware.
+
+https://expressjs.com/en/guide/error-handling.html
+`next()` either goes on to the next route or middleware, or to an error handler if it was given an object as a paramater. 
+You can respond from within the error handler.
+Remember to pass the error along to the default Express error handler.
+
+# The order of middleware loading
+Execution of middleware is same order as loaded in using `app.use` function.
+Be careful when defining middleware.
+
+Correct order is error handlers coming AFTER routes. Body parse should come very early, because logger and POST route rely on it.
+```js
+app.use(express.static('build'))
+app.use(bodyParser.json())
+app.use(logger)
+
+app.post('/api/notes', (request, response) => {
+  const body = request.body
+  // ...
+})
+
+const unknownEndpoint = (request, response) => {
+  response.status(404).send({ error: 'unknown endpoint' })
+}
+
+// handler of requests with unknown endpoint
+app.use(unknownEndpoint)
+
+const errorHandler = (error, request, response, next) => {
+  // ...
+}
+
+// handler of requests with result to errors
+app.use(errorHandler)
+```
+
+# Other operations
+Deleting and updating a resource / MongoDB document.
+
+`findByIdAndRemove` and `findByIdAndUpdate` mongoose model method.
+- `findByIdAndUpdate` takes a regular JS object, not a new Model object
+- `findByIdAndUpdate` `new: true` option gives the updated document to the event handler. By default, event handler will get the original.
+- Have to set mongoose to use the new MongoDB native method rather than the deprecated one
