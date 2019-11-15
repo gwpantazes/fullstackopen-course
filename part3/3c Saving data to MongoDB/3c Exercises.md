@@ -37,9 +37,9 @@ On the frontend, if the user tries to create a new phonebook entry for a person 
 - [x] Verify that the frontend works after making your changes.
 
 # 3.18*: Phonebook database step5
-- [ ] Update the handling of the `api/persons/:id` and `info` routes to use the database, 
-- [ ] and verify that they work directly with the browser, Postman, or VS Code REST client.
-    - [ ] Inspecting an individual phonebook entry from the browser should look like this:
+- [x] Update the handling of the `api/persons/:id` and `info` routes to use the database, 
+- [x] and verify that they work directly with the browser, Postman, or VS Code REST client.
+    - [x] Inspecting an individual phonebook entry from the browser should look like this:
     ```json
     {
         "name": "Arto Hellas",
